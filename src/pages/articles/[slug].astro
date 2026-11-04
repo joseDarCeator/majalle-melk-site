@@ -31,56 +31,47 @@ const pageTitle = `${article.title} | مجله ملک`;
 
     <main class="article-page">
       <div class="article-container">
-        <a class="back-link" href="/articles">← بازگشت به مقالات</a>
+        <a class="back-link" href="/articles">← بازگشت به مقالات به قلم محمد صادقی</a>
 
         <article>
-	  <div class="article-content">	
-	    {article.content?.map((section) => (
-	     <section>
-              {section.heading && <h2>{section.heading}</h2>}
-
-              {section.paragraphs.map((paragraph) => (
-               <p>{paragraph}</p>
-              ))}
-             </section>
-           ))}
-         </div>
+          {article.image && (
+            <img
+              src={article.image}
+              alt={article.title}
+              class="article-hero-image"
+            />
+          )}
 
           <h1>{article.title}</h1>
           <p class="excerpt">{article.excerpt}</p>
 
           <div class="article-content">
-            <p>
-              در این مقاله با نکات مهم مربوط به {article.title}
-              آشنا می‌شوید و معیارهای مهم برای تصمیم‌گیری آگاهانه‌تر
-              در بازار ملک مشهد را بررسی می‌کنیم.
-            </p>
-
-            <h2>چرا شناخت بازار ملک اهمیت دارد؟</h2>
-            <p>
-              انتخاب ملک مناسب به بررسی موقعیت، بودجه، نیازهای شخصی
-              و شرایط بازار بستگی دارد. پیش از تصمیم‌گیری، اطلاعات
-              کافی درباره گزینه‌های موجود جمع‌آوری کنید.
-            </p>
-
-            <h2>به چه نکاتی توجه کنیم؟</h2>
-            <p>
-              موقعیت ملک، دسترسی به امکانات شهری، وضعیت سند،
-              شرایط معامله و تناسب قیمت با بودجه از مواردی هستند
-              که باید با دقت بررسی شوند.
-            </p>
-
-            <h2>جمع‌بندی</h2>
-            <p>
-              بررسی دقیق اطلاعات و مقایسه گزینه‌ها کمک می‌کند
-              با دید روشن‌تری برای خرید یا سرمایه‌گذاری ملکی
-              در مشهد تصمیم بگیرید.
-            </p>
+            {article.content?.map((section) => (
+              <section>
+                {section.heading && <h2>{section.heading}</h2>}
+                {section.paragraphs.map((paragraph) => (
+                  <p>{paragraph}</p>
+                ))}
+              </section>
+            ))}
           </div>
 
           <a class="back-button" href="/articles">
-            مشاهده سایر مقالات
+            مشاهده سایر مقالات به قلم محمد صادقی
           </a>
+
+          <div class="author-box">
+            <p>
+              درباره نویسنده: این مقاله در مجله ملک به قلم
+              <a href="/about"> محمد صادقی </a>
+              منتشر شده است. محمد صادقی مشاور املاک در مشهد و دارای گواهینامه
+              فنی‌حرفه‌ای و دوره مدیریت املاک ترکیه است.
+              برای مشاهده ملک‌های منتخب:
+              <a href="https://boutikmelk.ir" target="_blank" rel="noopener noreferrer">
+                boutikmelk.ir
+              </a>
+            </p>
+          </div>
         </article>
       </div>
     </main>

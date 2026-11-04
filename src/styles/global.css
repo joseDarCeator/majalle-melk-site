@@ -33,6 +33,18 @@ h6 {
 .cta p {
   color: #183451 !important;
 }
+
+.boutik-cta h2 {
+  color: #183451 !important;
+}
+
+.boutik-cta p {
+  color: #183451 !important;
+}
+
+.boutik-cta {
+  background: #F3ECDE !important;
+}
 /* رنگ متن‌های اصلی */
 p {
   color: var(--color-text) !important;
@@ -49,4 +61,13 @@ p {
 
 .latest-section h3 a:hover {
   color: #a9501c !important;
+}
+.article-hero-image {
+  display: block;
+  width: 100%;
+  max-width: 850px;
+  height: 380px;
+  object-fit: cover;
+  margin: 0 auto 32px;
+  border-radius: 14px;
 }

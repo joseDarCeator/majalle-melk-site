@@ -9,6 +9,7 @@ export const articles = [
     date: "2026-11-02",
     readTime: 7,
     featured: true,
+    image: "/images/mashhad-city-overview.jpeg",
     content: [
       {
         heading: "معرفی مشهد و نواحی مختلف آن",
@@ -89,6 +90,7 @@ export const articles = [
     date: "2026-11-02",
     readTime: 10,
     featured: false,
+    image: "/images/mashhad-property-investment.jpeg",
     content: [
       {
         heading: "چرا مشهد گزینه خوبی برای سرمایه‌گذاری در ملک است؟",
@@ -185,6 +187,7 @@ export const articles = [
     date: "2026-11-02",
     readTime: 12,
     featured: false,
+    image: "/images/buying-a-home-in-mashhad.jpeg",
     content: [
       {
         heading: "مشهد چند منطقه دارد و چرا آدرس دقیق مهم است؟",

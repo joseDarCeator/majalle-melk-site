@@ -7,7 +7,8 @@ const investmentArticle = {
   readTime: 16,
   featured: false,
   homeFeatured: true,
-  content: [
+  image: "/images/mashhad-property-investment-consultation.jpeg",
+   content: [
     {
       heading: "مقدمه",
       paragraphs: [

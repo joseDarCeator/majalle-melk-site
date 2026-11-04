@@ -1,0 +1,194 @@
+
+---
+import { articles } from "../../data/articles.js";
+import SiteHeader from "../../components/SiteHeader.astro";
+import SiteFooter from "../../components/SiteFooter.astro";
+import "../../styles/global.css";
+
+export function getStaticPaths() {
+  return articles.map((article) => ({
+    params: { slug: article.slug },
+    props: { article },
+  }));
+}
+
+const { article } = Astro.props;
+const pageTitle = `${article.title} | مجله ملک`;
+---
+
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={article.excerpt} />
+	<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+  </head>
+
+  <body>
+    <SiteHeader />
+
+    <main class="article-page">
+      <div class="article-container">
+        <a class="back-link" href="/articles">← بازگشت به مقالات به قلم محمد صادقی</a>
+        <article>
+	  <div class="article-content">	
+	    {article.content?.map((section) => (
+	     <section>
+              {section.heading && <h2>{section.heading}</h2>}
+
+              {section.paragraphs.map((paragraph) => (
+               <p>{paragraph}</p>
+              ))}
+             </section>
+           ))}
+         </div>
+
+          <h1>{article.title}</h1>
+          {article.image && (
+  <img
+    src={article.image}
+    alt={article.title}
+    class="article-hero-image"
+  />
+)}
+	  <p class="excerpt">{article.excerpt}</p>
+
+          <div class="article-content">
+            <p>
+              در این مقاله با نکات مهم مربوط به {article.title}
+              آشنا می‌شوید و معیارهای مهم برای تصمیم‌گیری آگاهانه‌تر
+              در بازار ملک مشهد را بررسی می‌کنیم.
+            </p>
+
+            <h2>چرا شناخت بازار ملک اهمیت دارد؟</h2>
+            <p>
+              انتخاب ملک مناسب به بررسی موقعیت، بودجه، نیازهای شخصی
+              و شرایط بازار بستگی دارد. پیش از تصمیم‌گیری، اطلاعات
+              کافی درباره گزینه‌های موجود جمع‌آوری کنید.
+            </p>
+
+            <h2>به چه نکاتی توجه کنیم؟</h2>
+            <p>
+              موقعیت ملک، دسترسی به امکانات شهری، وضعیت سند،
+              شرایط معامله و تناسب قیمت با بودجه از مواردی هستند
+              که باید با دقت بررسی شوند.
+            </p>
+
+            <h2>جمع‌بندی</h2>
+            <p>
+              بررسی دقیق اطلاعات و مقایسه گزینه‌ها کمک می‌کند
+              با دید روشن‌تری برای خرید یا سرمایه‌گذاری ملکی
+              در مشهد تصمیم بگیرید.
+            </p>
+          </div>
+
+          <a class="back-button" href="/articles">
+             مشاهده سایر مقالات به قلم محمد صادقی
+          </a>
+<div class="author-box">
+  <p>
+    درباره نویسنده: این مقاله در مجله ملک به قلم
+    <a href="/about"> محمد صادقی </a>
+    منتشر شده است. محمد صادقی مشاور املاک در مشهد و دارای گواهینامه
+    فنی‌حرفه‌ای و دوره مدیریت املاک ترکیه است.
+    برای مشاهده ملک‌های منتخب:
+    <a href="https://boutikmelk.ir" target="_blank" rel="noopener noreferrer">
+      boutikmelk.ir
+    </a>
+  </p>
+</div>
+	</article>
+      </div>
+    </main>
+
+    <SiteFooter />
+  </body>
+</html>
+
+<style>
+  :global(body) {
+    margin: 0;
+    background: #183451;
+    color: #f3ecde;
+    font-family: inherit;
+  }
+
+  .article-page {
+    min-height: 60vh;
+    padding: 56px 24px 80px;
+  }
+
+  .article-container {
+    width: min(820px, 100%);
+    margin-inline: auto;
+  }
+
+  .back-link {
+    display: inline-block;
+    color: #d4af83;
+    text-decoration: none;
+    margin-bottom: 32px;
+  }
+
+  article {
+    line-height: 2;
+  }
+
+  .article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    color: #d4af83;
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: clamp(28px, 5vw, 42px);
+    line-height: 1.7;
+    margin: 16px 0;
+  }
+
+  .excerpt {
+    color: #d9e1e9;
+    font-size: 18px;
+    line-height: 2;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(243, 236, 222, 0.2);
+  }
+
+  .article-content {
+    padding-top: 12px;
+  }
+
+  h2 {
+    color: #d4af83;
+    font-size: 23px;
+    margin-top: 32px;
+  }
+
+  .article-content p {
+    line-height: 2.2;
+  }
+
+  .back-button {
+    display: inline-block;
+    margin-top: 32px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    background: #a9501c;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  @media (max-width: 600px) {
+    .article-page {
+      padding: 32px 18px 56px;
+    }
+
+    .excerpt {
+      font-size: 16px;
+    }
+  }
+</style>
