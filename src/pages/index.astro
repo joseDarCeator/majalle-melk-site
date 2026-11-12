@@ -2,6 +2,7 @@
 import SiteHeader from "../components/SiteHeader.astro";
 import "../styles/global.css";
 import { articles } from "../data/articles.js";
+import { formatJalali } from "../data/format-date.js";
 import SiteFooter from "../components/SiteFooter.astro";
 
 const featuredArticle = articles.find((article) => article.homeFeatured);
@@ -55,7 +56,7 @@ const featuredArticle = articles.find((article) => article.homeFeatured);
           <p class="hero-excerpt">{featuredArticle.excerpt}</p>
 
           <div class="article-meta">
-            <span>{featuredArticle.date}</span>
+            <span>{formatJalali(featuredArticle.date)}</span>
             <span class="meta-separator" aria-hidden="true"></span>
             <span>{featuredArticle.readTime}</span>
           </div>
@@ -139,7 +140,7 @@ const featuredArticle = articles.find((article) => article.homeFeatured);
                     <span class="eyebrow">{article.category}</span>
                     <h3><a href={`/articles/${article.slug}`}>{article.title}</a></h3>
                     <p>{article.excerpt}</p>
-                    <time>{article.date}</time>
+                    <time>{formatJalali(article.date)}</time>
                     <a class="story-read-link" href={`/articles/${article.slug}`}>مطالعه مقاله <span aria-hidden="true">←</span></a>
                   </div>
                 </article>
@@ -176,7 +177,7 @@ const featuredArticle = articles.find((article) => article.homeFeatured);
 
                   <div class="latest-card-bottom">
                     <div class="latest-meta">
-                      <time>{article.date}</time>
+                      <time>{formatJalali(article.date)}</time>
                       <span class="latest-meta-dot" aria-hidden="true"></span>
                       <span>{article.readTime}</span>
                     </div>
@@ -482,7 +483,7 @@ const featuredArticle = articles.find((article) => article.homeFeatured);
     align-items: center;
     gap: 14px;
     margin-bottom: 30px;
-    color: rgba(24, 52, 81, 0.78);
+    color: rgba(243, 236, 222, 0.85);
     font-size: 0.76rem;
   }
 
@@ -826,7 +827,13 @@ const featuredArticle = articles.find((article) => article.homeFeatured);
     font-size: 1.1rem;
   }
 
-  .story-small time,
+  .story-small time {
+    display: block;
+    margin-top: 15px;
+    color: rgba(243, 236, 222, 0.85);
+    font-size: 0.8rem;
+  }
+
   .latest-section .latest-content time {
     display: block;
     margin-top: 15px;
