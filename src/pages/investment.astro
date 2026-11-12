@@ -4,6 +4,7 @@ import SiteHeader from "../components/SiteHeader.astro";
 import SiteFooter from "../components/SiteFooter.astro";
 import "../styles/global.css";
 import { articles } from "../data/articles.js";
+import { formatJalali } from "../data/format-date.js";
 
 const investmentArticles = articles.filter(
   (article) => article.category === "سرمایه‌گذاری"
@@ -23,6 +24,14 @@ const investmentArticles = articles.filter(
     />
 
 	<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="مجله ملک" />
+    <meta property="og:title" content="سرمایه‌گذاری در بازار ملک مشهد | مجله ملک" />
+    <meta property="og:description" content="راهنمای آشنایی با سرمایه‌گذاری ملکی در مشهد و معیارهای انتخاب ملک مناسب." />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:image" content={new URL("/images/hero-mashhad-shrine.jpg", Astro.site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
 
   <body>
@@ -103,7 +112,7 @@ const investmentArticles = articles.filter(
               </h3>
             <p>{article.excerpt}</p>
             <div class="investment-article-meta">
-              <span>{article.date}</span>
+              <span>{formatJalali(article.date)}</span>
               <span>{article.readTime} دقیقه مطالعه</span>
             </div>
             <a class="investment-read-link" href={`/articles/${article.slug}`}>
