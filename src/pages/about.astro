@@ -74,6 +74,15 @@ const certificates = [
       name="description"
       content="آشنایی با محمد صادقی، مشاور املاک در مشهد و بنیانگذار بوتیک ملک و مجله ملک؛ همراه با سوابق آموزشی و حرفه‌ای."
     />
+    <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="مجله ملک" />
+    <meta property="og:title" content="درباره محمد صادقی | مجله ملک" />
+    <meta property="og:description" content="آشنایی با محمد صادقی، مشاور املاک در مشهد و بنیانگذار بوتیک ملک و مجله ملک." />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:image" content={new URL("/images/mohamad-sadeghi.webp", Astro.site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
 
   <body>

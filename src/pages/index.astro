@@ -36,6 +36,9 @@ const featuredArticle = articles.find((article) => article.homeFeatured);
       rel="stylesheet"
     />
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:image" content={new URL("/images/hero-mashhad-shrine.jpg", Astro.site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
   </head>
 
   <body>

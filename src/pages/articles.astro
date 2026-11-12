@@ -16,6 +16,14 @@ const otherArticles = articles.filter((article) => !article.featured);
   <title>مقالات بازار ملک مشهد | مجله ملک</title>
   <meta name="description" content="راهنماها و مقالات خرید ملک و سرمایه‌گذاری در مشهد." />
   <link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="مجله ملک" />
+    <meta property="og:title" content="مقالات بازار ملک مشهد | مجله ملک" />
+    <meta property="og:description" content="راهنماها و مقالات خرید ملک و سرمایه‌گذاری در مشهد." />
+    <meta property="og:url" content={new URL(Astro.url.pathname, Astro.site).href} />
+    <meta property="og:image" content={new URL("/images/hero-mashhad-shrine.jpg", Astro.site).href} />
+    <meta name="twitter:card" content="summary_large_image" />
 </head>
 <body>
   <SiteHeader active="articles" />
